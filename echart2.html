@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>big</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.8.0/echarts.min.js"></script>
+
+</head>
+
+<body>
+    <div id="demo1" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('demo1'));
+
+
+        // 指定图表的配置项和数据
+
+        var data = [{
+            value: 1,
+            name: '1正常'
+        }, {
+            value: 2,
+            name: '1迟到'
+        }, {
+            value: 3,
+            name: '1早退'
+        }, {
+            value: 4,
+            name: '1旷课'
+        }, {
+            value: 5,
+            name: '1请假'
+        }, {
+            value: 6,
+            name: '华南城市6'
+        }, {
+            value: 1,
+            name: '2正常'
+        }, {
+            value: 2,
+            name: '2迟到'
+        }, {
+            value: 3,
+            name: '2早退'
+        }, {
+            value: 4,
+            name: '2旷课'
+        }, {
+            value: 5,
+            name: '2请假'
+        }, {
+            value: 6,
+            name: '2华东城市6'
+        }, {
+            value: 1,
+            name: '3正常'
+        }, {
+            value: 2,
+            name: '3迟到'
+        }, {
+            value: 3,
+            name: '3早退'
+        }, {
+            value: 4,
+            name: '3旷课'
+        }, {
+            value: 5,
+            name: '3请假'
+        }, {
+            value: 6,
+            name: '3华北城市6'
+        }, {
+            value: 1,
+            name: '4正常'
+        }, {
+            value: 2,
+            name: '4迟到'
+        }, {
+            value: 3,
+            name: '4早退'
+        }, {
+            value: 4,
+            name: '4旷课'
+        }, {
+            value: 5,
+            name: '4请假'
+        }, {
+            value: 6,
+            name: '4华西城市6'
+        }, {
+            value: 1,
+            name: '5正常'
+        }, {
+            value: 2,
+            name: '5迟到'
+        }, {
+            value: 3,
+            name: '5早退'
+        }, {
+            value: 4,
+            name: '5旷课'
+        }, {
+            value: 5,
+            name: '5请假'
+        }, {
+            value: 6,
+            name: '5东北城市6'
+        }]
+        var labelData = [{
+            value: 6,
+            name: '周一'
+        }, {
+            value: 6,
+            name: '周二'
+        }, {
+            value: 6,
+            name: '周三'
+        }, {
+            value: 6,
+            name: '周四'
+        }, {
+            value: 6,
+            name: '周五'
+        }];
+
+        var option = {
+            backgroundColor: '#0C2A40',
+            title: {
+                text: '我是标题',
+                left: '1%',
+                top: '1%',
+                textStyle: {
+                    color: "#FFF",
+                    fontSize: "12"
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+
+            },
+            color: ["#FC0300", "#FC0303", "#FC0A0A", "#FC1A1A", "#FC3131", "#FC4B4B",
+                "#19B7CF", "#2CB9CE", "#34BCD1", "#3BBFD1", "#48BFD1", "#58C1D1",
+                "#CA8622", "#C98B2E", "#C9903B", "#CB9848", "#C99D5A", "#CBA567",
+                "#2F4554", "#314652", "#344852", "#394852", "#3E4D55", "#404D55",
+                "#91C7AE", "#98C6B2", "#9DC9B7", "#AAC6B9", "#B4C6BF", "#BCC9C4",
+
+            ],
+
+            series: [{
+                type: 'pie',
+                data: data,
+                roseType: 'area',
+                itemStyle: {
+                    normal: {
+
+                        // borderColor: '#22C3AA'
+                    }
+                },
+                label: {
+                    normal: {
+                        position: 'inside'
+                    }
+                }
+
+
+            }, {
+                type: 'pie',
+                data: labelData,
+                radius: ['88%', '100%'],
+                zlevel: -2,
+                itemStyle: {
+                    normal: {
+                        color: '#152E43',
+                        borderColor: '#0F5FA0'
+                    }
+                },
+                label: {
+                    normal: {
+                        position: 'inside'
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

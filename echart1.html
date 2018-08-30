@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>big</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.8.0/echarts.min.js"></script>
+
+</head>
+
+<body>
+    <div id="demo1" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('demo1'));
+
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: [
+                {
+                    text: '考勤异常统计',
+                    left: 'center'
+                },
+                {
+                    text: '迟到',
+                    textStyle: {
+
+                        color: '#c23531'
+                    },
+                    right: 35,
+                    top: 275
+                },
+                {
+                    text: '(实线)',
+                    right: 3,
+                    top: 280,
+                    textStyle: {
+                        color: '#c23531',
+                        fontSize: 12
+
+                    }
+                },
+
+                {
+                    text: '请假',
+                    textStyle: {
+
+                        color: '#2f4554'
+
+                    },
+                    right: 35,
+                    top: 295
+                },
+                {
+                    text: '早退',
+                    textStyle: {
+                        color: '#d48265'
+
+                    },
+                    right: 35,
+                    top: 255
+                },
+                {
+                    text: '旷课',
+                    textStyle: {
+                        color: '#61a0a8'
+                    },
+                    right: 35,
+                    top: 315
+                }],
+            tooltip: {
+                trigger: 'axis',
+                formatter: '{b}<br/>{a0}: {c0}%<br />{a1}: {c1}%<br />{a2}: {c2}%<br/>{a3}: {c3}%'
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {},
+                    dataView: { readOnly: false },
+                    magicType: { type: ['line', 'bar'] },
+                    restore: {},
+                    saveAsImage: {
+                        pixelRatio: 5
+                    }
+                }
+            },
+            xAxis: {
+                type: 'category',
+                name: '时间轴',
+                // min:-35,
+                // boundaryGap: false,
+                data: ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期天",]
+            },
+            yAxis: {
+                type: 'value',
+                // min:-35,
+                name: '人数',
+                axisLabel: {
+                    formatter: '{value} 人'
+                }
+            },
+            series: [
+
+                {
+                    name: '迟到',
+                    type: 'line',
+                    data: [5, 3, 0, 5, 4, 4, 1],
+                    markPoint: {
+                        label: {
+                            show: true,
+                            formatter: '{c}人'
+                        },
+                        data: [
+                            { type: 'max', name: '最大值' },
+                            { type: 'min', name: '最小值' },
+                            { coord: [41, 15], name: '15', value: 15 }
+                        ]
+                    },
+                },
+                {
+                    name: '请假',
+                    type: 'line',
+                    lineStyle: {
+                        type: 'dashed'
+                    },
+                    data: [1, 5, 3, 2, 3, 3, 7],
+                    markPoint: {
+                        label: {
+                            formatter: '{c}人'
+                        },
+                        data: [
+                            { type: 'max', name: '最大值' },
+                            { type: 'min', name: '最小值' }
+                        ]
+                    },
+                },
+
+                {
+                    name: '旷课',
+                    lineStyle: {
+                        type: 'dotted'
+                    },
+                    type: 'line',
+                    markPoint: {
+                        label: {
+                            formatter: '{c}人'
+                        },
+                        data: [
+                            { type: 'max', name: '最大值' },
+                            { type: 'min', name: '最小值' }
+                        ]
+                    },
+                    data: [7.38, 7.73, 7.46, 4.58, 4.33, 4.6, 4.42]
+                },
+                {
+                    name: '早退',
+                    type: 'line',
+                    data: ['-', 15.17, 15.17, 15.16, 14.77, 14.91, "-"],
+                    markPoint: {
+                        label: {
+                            show: true,
+                            formatter: '{c}人'
+                        },
+                        data: [
+                            { type: 'max', name: '最大值' },
+                            { type: 'min', name: '最小值' },
+                            { coord: [41, 15], name: '15', value: 15 }
+                        ]
+                    },
+                },
+            ]
+        };
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
